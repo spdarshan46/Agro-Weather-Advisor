@@ -1,6 +1,8 @@
 <img width="1131" height="625" alt="image" src="https://github.com/user-attachments/assets/90f948e0-0387-4ce3-8b84-b73c3e77e5d1" />
 🌦️ Agro Weather Advisor
+
 https://spdarshan46.github.io/Agro-Weather-Advisor/
+
 A smart web application that provides real-time weather updates and crop suitability prediction for Karnataka cities.
 
 ---
