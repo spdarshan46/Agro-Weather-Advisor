@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather & Crop Suitability</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-wrapper">
+
+    <div class="top-nav">
+      <div class="nav-left">
+        <button class="tab-btn active" data-tab="weatherTab"> <span class="tab-icon">☀️</span> <span class="tab-label">Weather</span> </button>
+        <button class="tab-btn" data-tab="predictTab"> <span class="tab-icon">🌾</span> <span class="tab-label">Prediction</span> </button>
+      </div>
+
+      <div class="nav-right">
+        <button id="theme-toggle" class="icon-btn" title="Toggle theme">🌙</button>
+      </div>
+    </div>
+
+    <div id="weatherTab" class="content">
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Live Weather App</h3>
+          <div class="header-actions">
+            <button class="icon-btn" id="refresh-btn" title="Refresh">⟳</button>
+            <button class="icon-btn" id="location-btn" title="Use my location">📍</button>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="search-row">
+            <input id="search-input" class="search-input" placeholder="Search city..." />
+            <button id="search-btn" class="search-action">Search</button>
+          </div>
+
+          <div id="loading" class="loading" style="display:none;">
+            <div class="spinner"></div>
+            <span>Loading...</span>
+          </div>
+
+          <div id="error-message" class="error-message" style="display:none;"></div>
+
+          <div id="weather-display" style="display:none;">
+            <div class="location"><span id="location">--</span></div>
+            <div class="date-time" id="date-time">--</div>
+
+            <div class="current-row">
+              <div class="weather-main">
+                <img id="weather-icon" class="weather-icon" alt="icon" />
+                <div class="temperature">
+                  <span id="temp-val">--</span>°
+                  <span id="temp-unit">C</span>
+                </div>
+                <div id="weather-desc" class="weather-desc">--</div>
+              </div>
+
+              <div class="weather-stats">
+                <div class="stat stat-feel"><div class="value" id="feels-like">--°C</div><div class="label">Feels Like</div></div>
+                <div class="stat stat-humidity"><div class="value" id="humidity">--%</div><div class="label">Humidity</div></div>
+                <div class="stat"><div class="value" id="wind-speed">-- km/h</div><div class="label">Wind</div></div>
+                <div class="stat"><div class="value" id="uv-index">--</div><div class="label">UV Index</div></div>
+              </div>
+            </div>
+
+            <div class="forecast-area">
+              <div class="forecast-title">6-Day Forecast</div>
+              <div class="forecast-items" id="forecast-items"></div>
+            </div>
+
+            <div class="controls-row">
+              <div class="unit-toggle">
+                <button class="unit active" id="celsius-btn">°C</button>
+                <button class="unit" id="fahrenheit-btn">°F</button>
+              </div>
+              <div class="last-updated" id="last-updated"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="predictTab" class="content" style="display:none;">
+      <div class="card" id="prediction-card">
+        <div class="card-header">
+          <h3>Karnataka Crop Suitability</h3>
+        </div>
+
+        <div class="card-body">
+          <div class="predict-box">
+            <label>Select City</label>
+            <select id="city">
+              <option>Bengaluru</option><option>Mysuru</option><option>Mandya</option><option>Hassan</option>
+              <option>Tumakuru</option><option>Shivamogga</option><option>Mangaluru</option><option>Udupi</option>
+              <option>Chikkamagaluru</option><option>Davanagere</option><option>Ballari</option><option>Vijayapura</option>
+              <option>Bagalkot</option><option>Belagavi</option><option>Hubballi</option><option>Dharwad</option>
+              <option>Raichur</option><option>Kalaburagi</option><option>Koppal</option><option>Gadag</option>
+              <option>Chamarajanagar</option><option>Kodagu</option><option>Ramanagara</option><option>Kolar</option>
+              <option>Chikkaballapur</option><option>Bidar</option><option>Yadgir</option><option>Haveri</option>
+            </select>
+
+            <label>Select Crop</label>
+            <select id="crop">
+              <option>rice</option><option>wheat</option><option>maize</option><option>ragi</option>
+              <option>sugarcane</option><option>tur</option><option>cotton</option><option>groundnut</option>
+            </select>
+
+            <label>Select Soil Type</label>
+            <select id="soil">
+              <option>clay</option><option>loam</option><option>sandy</option><option>sandy-loam</option>
+              <option>black soil</option><option>red soil</option><option>alluvial</option><option>laterite</option>
+            </select>
+
+            <button class="primary" id="check-suitability">Check Suitability</button>
+          </div>
+
+          <div id="result"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
